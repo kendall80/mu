@@ -1,4 +1,6 @@
 Mu::Application.routes.draw do
+  resources :transactions
+
   devise_for :users
   root "pages#home"
   get "about" => "pages#about" # create about_path

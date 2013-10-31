@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  category: MyString
+  date: 2013-10-30 18:48:13
+  amount: 9.99
+  location: MyString
+  account: MyString
+  tag: MyString
+
+two:
+  category: MyString
+  date: 2013-10-30 18:48:13
+  amount: 9.99
+  location: MyString
+  account: MyString
+  tag: MyString
