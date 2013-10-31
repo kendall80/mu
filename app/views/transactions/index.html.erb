@@ -15,8 +15,14 @@
 
         <% if transaction.user == current_user %>
           <div class="actions">
-          <%= link_to 'Edit', edit_transaction_path(transaction) %>
-          <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to edit_transaction_path(transaction) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            Edit
+          <% end %>
+          <%= link_to transaction, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+            Delete
+          <% end %>
           </div>
         <% end %>
        </div>
