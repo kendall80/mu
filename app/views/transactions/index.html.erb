@@ -10,7 +10,7 @@
       <th>Account</th>
       <th>Tag</th>
       <th>User</th>
-      <th></th>
+      <th>Image</th>
       <th></th>
     </tr>
   </thead>
@@ -25,6 +25,7 @@
         <td><%= transaction.account %></td>
         <td><%= transaction.tag %></td>
         <td><%= transaction.user.email if transaction.user %></td>
+        <td><%= image_tag transaction.image.url(:thumb) %></td>
         <td><%= link_to 'Show', transaction %></td>
         <% if transaction.user == current_user %>
           <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
