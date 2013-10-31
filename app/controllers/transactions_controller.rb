@@ -1,5 +1,7 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show]
 
   def index
     @transactions = Transaction.all
@@ -9,14 +11,14 @@ class TransactionsController < ApplicationController
   end
 
   def new
-    @transaction = Transaction.new
+    @transaction = current_user.transactions.build
   end
 
   def edit
   end
 
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = current_user.transactions.build(transaction_params)
 
     if @transaction.save
       redirect_to @transaction, notice: 'Transaction was successfully created.'
@@ -42,6 +44,11 @@ class TransactionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
       @transaction = Transaction.find(params[:id])
+    end
+
+    def correct_user
+      @transaction = current_user.transactions.find_by(id: params[:id])
+      redirect_to transactions_path, notice: "Not authorized to edit this transaction" if @transaction.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

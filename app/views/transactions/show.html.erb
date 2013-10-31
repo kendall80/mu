@@ -30,5 +30,8 @@
   <%= @transaction.tag %>
 </p>
 
-<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<% if @transaction.user == current_user %>
+  <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<% end %>
+
 <%= link_to 'Back', transactions_path %>
