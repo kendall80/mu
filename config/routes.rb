@@ -2,7 +2,7 @@ Mu::Application.routes.draw do
   resources :transactions
 
   devise_for :users
-  root "pages#home"
+  root "transactions#index"
   get "about" => "pages#about" # create about_path
   
   # The priority is based upon order of creation: first created -> highest priority.
