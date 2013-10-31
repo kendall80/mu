@@ -1,37 +1,49 @@
-<%= image_tag @transaction.image.url(:medium) %>
-
-<p>
-  <strong>Category:</strong>
-  <%= @transaction.category %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @transaction.date %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @transaction.amount %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @transaction.location %>
-</p>
-
-<p>
-  <strong>Account:</strong>
-  <%= @transaction.account %>
-</p>
-
-<p>
-  <strong>Tag:</strong>
-  <%= @transaction.tag %>
-</p>
-
-<% if @transaction.user == current_user %>
-  <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
-<% end %>
-
 <%= link_to 'Back', transactions_path %>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+    <div class="panel-heading center">
+      <%= image_tag @transaction.image.url(:medium) %>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Category:</strong>
+        <%= @transaction.category %>
+      </p>
+
+      <p>
+        <strong>Date:</strong>
+        <%= @transaction.date %>
+      </p>
+
+      <p>
+        <strong>Amount:</strong>
+        <%= @transaction.amount %>
+      </p>
+
+      <p>
+        <strong>Location:</strong>
+        <%= @transaction.location %>
+      </p>
+
+      <p>
+        <strong>Account:</strong>
+        <%= @transaction.account %>
+      </p>
+
+      <p>
+        <strong>Tag:</strong>
+        <%= @transaction.tag %>
+      </p>
+
+      <p>
+        <strong><%= @transaction.user.email if @transaction.user %></strong>
+      </p>
+
+      <% if @transaction.user == current_user %>
+        <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+      <% end %>
+    </div>
+  </div>
+</div>
