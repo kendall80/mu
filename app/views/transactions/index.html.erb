@@ -8,7 +8,7 @@
 
       <div class="panel-body">
         <p><%= transaction.category %></p>
-        <p><%= transaction.date %></p>
+        <p><%= transaction.date.to_formatted_s(:long_ordinal) %></p>
         <p><%= transaction.amount %></p>
         <p><%= transaction.location %></p>
         <p><%= transaction.account %></p>

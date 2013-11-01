@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.all.order("created_at DESC")
   end
 
   def show

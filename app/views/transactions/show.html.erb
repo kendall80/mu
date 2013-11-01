@@ -7,14 +7,15 @@
       <%= image_tag @transaction.image.url(:medium) %>
     </div>
     <div class="panel-body">
+
       <p>
         <strong>Category:</strong>
         <%= @transaction.category %>
       </p>
-
+  
       <p>
         <strong>Date:</strong>
-        <%= @transaction.date %>
+        <%= @transaction.date.to_formatted_s(:long_ordinal) %>
       </p>
 
       <p>
