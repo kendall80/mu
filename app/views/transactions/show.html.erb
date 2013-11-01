@@ -39,7 +39,7 @@
       </p>
 
       <p>
-        <strong><%= @transaction.user.email if @transaction.user %></strong>
+        <strong><%= @transaction.user.name if @transaction.user %></strong>
       </p>
 
       <% if @transaction.user == current_user %>

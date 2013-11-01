@@ -13,7 +13,7 @@
         <p><%= transaction.location %></p>
         <p><%= transaction.account %></p>
         <p><%= transaction.tag %></p>
-        <p><strong><%= transaction.user.email if transaction.user %></strong></p>
+        <p><strong><%= transaction.user.name if transaction.user %></strong></p>
 
         <% if transaction.user == current_user %>
           <div class="actions">
